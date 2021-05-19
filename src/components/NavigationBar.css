@@ -1,0 +1,52 @@
+.navigation-bar{
+    height: 3rem;
+    background-color: #343c4a;
+}
+.notification-bell{
+    /* margin-top: 1.5vh;
+    margin-right: 10px; */
+    position: relative;
+    top: 1rem;
+    right: 10px;
+    float:right;
+    cursor: pointer;
+    
+}
+.icon{
+    display: flex;
+    align-items: center;
+}
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+.menu {
+    background: #ffffff;
+    position: absolute;
+    right: 10px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu li {
+    cursor:default;
+    text-decoration: none;
+    color: #2e2e2e;
+    padding: 15px 20px;
+    display: block;
+    border-bottom: 1px solid #dddddd;
+}
