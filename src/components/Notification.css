@@ -1,0 +1,13 @@
+.Notification > label{
+    color: #acacac;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 8fr 1fr 1fr;
+  }
+  .not-seen{
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .delete-btn{text-align: right;
+  }

@@ -3,8 +3,6 @@
     background-color: #343c4a;
 }
 .notification-bell{
-    /* margin-top: 1.5vh;
-    margin-right: 10px; */
     position: relative;
     top: 1rem;
     right: 10px;
@@ -50,3 +48,18 @@
     display: block;
     border-bottom: 1px solid #dddddd;
 }
+.not-seen{
+    background-color: #f6f9ff;
+  }
+  .seen{
+    background-color: #ffffff;
+  }
+
+  .clear-all-btn{
+    color: #acacac;
+    cursor: pointer;
+    
+  }
+  .clear-all-btn:hover{
+    color: #272727;
+  }
