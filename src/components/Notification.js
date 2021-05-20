@@ -3,7 +3,6 @@ import { ReactComponent as X } from '../Svgs/X.svg';
 import { ReactComponent as ArrowNotSeen } from '../Svgs/arrow-notseen.svg';
 import { ReactComponent as ArrowSeen } from '../Svgs/arrow-seen.svg';
 const Notification = ({info, onDelete}) => {
-
     return (
         <div className='Notification'>
           <label>{info.time}</label><br/> 
@@ -18,5 +17,4 @@ const Notification = ({info, onDelete}) => {
         </div>
     )
 }
-
 export default Notification

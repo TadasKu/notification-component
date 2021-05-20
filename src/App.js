@@ -1,11 +1,11 @@
-import {useState} from 'react'
+import {useReducer} from 'react'
 import NavigationBar from "./components/NavigationBar"
 function App() {
   const defaultList = [
     {
       id:1,
       time:'12.08.21 - 15:49',
-      summary:"testsssssssss",
+      summary:"test",
       seen:0
     },
     {
@@ -15,22 +15,28 @@ function App() {
       seen:0
     },
   ]
-  const [Notifications, setNotifications] = useState(defaultList)
+  const [Notifications, setNotifications] = useReducer(notificatonReducer, defaultList);
+  function notificatonReducer(state, product) {
+    switch(product.type) {
+      case 'makeAllSeen':
+        return state.map(notification => notification.seen === 0 ? {...notification, seen:1}: {...notification, seen:1});
+      case 'deleteByID':
+        return state.filter(notification => notification.id !==product.id);
+      case 'clearAll':
+        return [];
+      default:
+        return state;
+  }}
   const clearAll = () =>{
-    setNotifications([])
-    console.log(Notifications)
+    setNotifications({type:"clearAll"})
   }
   const makeAllSeen= () =>{
     if (Notifications!==null) {
-      console.log(Notifications);
-      setNotifications(Notifications.map(notification => notification.seen === 0 ? {...notification, seen:1} : notification))
+      setNotifications({type:"makeAllSeen"})
     }
   }
   const deleteNotification = (id) =>{
-    console.log(id);
-    setNotifications(Notifications.filter(notification => notification.id !==id)) 
-    setTimeout(function(){console.log(Notifications); }, 3000);
-    
+    setNotifications({id, type:"deleteByID"})
   }
   return (
     <div className="App">

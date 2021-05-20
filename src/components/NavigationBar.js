@@ -8,7 +8,7 @@ const NavigationBar = ({Notifications, onClearAll, onSeenAll, onDelete}) => {
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useState(false);
     function getUnseenCount(){
-        if (Notifications!=null) {
+        if (Notifications!==null) {
            return Notifications.filter(item =>item.seen===0).length 
         }
         else return 0;
@@ -37,12 +37,13 @@ const NavigationBar = ({Notifications, onClearAll, onSeenAll, onDelete}) => {
           return () => {
             window.removeEventListener('click', pageClickEvent);
           }
+        // eslint-disable-next-line
       }, [isActive]);
     return (
         <div className="navigation-bar">
             <div className="notification-bell"> 
                 <div className="icon">
-                    <FaBell onClick={showNotifications} className='bell' style={{color: !isActive ? "#aeb1b7" : 'white'}}/> <span style={{color: isActive ? "white" : '#aeb1b7' , cursor:'default'}}>{getUnseenCount()}</span>
+                    <FaBell onClick={showNotifications} className='bell' style={{color: !isActive ? "#aeb1b7" : 'white'}}/> <span style={{color: isActive ? "white" : '#aeb1b7' , cursor:'default'}}>{ getUnseenCount()}</span>
                 </div>
                 <nav ref={dropdownRef} className={`menu ${isActive ? 'active' : 'inactive'}`}>
                     <ul>
